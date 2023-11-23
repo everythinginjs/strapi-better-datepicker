@@ -1,4 +1,20 @@
 {
-  "plugin.name": "Better Datepicker",
-  "plugin.description": "A full-featured datepicker with a lot of customization."
+  "strapi-better-datepicker.name": "Better Datepicker",
+  "strapi-better-datepicker.description": "A full-featured datepicker with a lot of customization.",
+  "strapi-better-datepicker.base.section.title.type": "Type",
+  "strapi-better-datepicker.base.type.items": "Calendar Type",
+  "strapi-better-datepicker.base.type.items.gregorian": "Gregorian",
+  "strapi-better-datepicker.base.type.items.persian": "Persian (Solar Hijri/Jalaali)",
+  "strapi-better-datepicker.base.type.items.arabic": "Arabic (Lunar Hijri)",
+  "strapi-better-datepicker.base.type.items.indian": "Indian",
+  "strapi-better-datepicker.advanced.section.title.settings": "Settings",
+  "strapi-better-datepicker.form.attribute.item.privateField": "Private field",
+  "strapi-better-datepicker.form.attribute.item.privateField.description": "This field will not show up in the API response",
+  "strapi-better-datepicker.form.attribute.item.requiredField": "Required field",
+  "strapi-better-datepicker.form.attribute.item.requiredField.description": "You won't be able to create an entry if this field is empty",
+  "strapi-better-datepicker.advanced.locale.english": "English",
+  "strapi-better-datepicker.advanced.locale.farsi": "Farsi",
+  "strapi-better-datepicker.advanced.locale.arabic": "Arabic",
+  "strapi-better-datepicker.advanced.locale.items": "Locale",
+  "strapi-better-datepicker.advanced.locale.items.placeholder": "Choose a locale for calendar"
 }
