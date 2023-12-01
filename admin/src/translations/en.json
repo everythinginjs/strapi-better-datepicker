@@ -15,6 +15,7 @@
   "strapi-better-datepicker.advanced.locale.english": "English",
   "strapi-better-datepicker.advanced.locale.farsi": "Farsi",
   "strapi-better-datepicker.advanced.locale.arabic": "Arabic",
+  "strapi-better-datepicker.advanced.locale.indian": "Indian",
   "strapi-better-datepicker.advanced.locale.items": "Locale",
   "strapi-better-datepicker.advanced.locale.items.placeholder": "Choose a locale for calendar"
 }

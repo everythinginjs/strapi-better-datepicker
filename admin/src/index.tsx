@@ -134,6 +134,16 @@ export default {
                       },
                     },
                   },
+                  {
+                    key: 'indian',
+                    value: 'indian',
+                    metadatas: {
+                      intlLabel: {
+                        id: getTrad('advanced.locale.indian'),
+                        defaultMessage: 'Indian',
+                      },
+                    },
+                  },
                 ],
               },
             ],
