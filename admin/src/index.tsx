@@ -146,8 +146,22 @@ export default {
                   },
                 ],
               },
+              {
+                name: 'options.today',
+                type: 'checkbox',
+                defaultValue: 'true',
+                intlLabel: {
+                  id: getTrad('advanced.today'),
+                  defaultMessage: 'Highlight today',
+                },
+                description: {
+                  id: getTrad('advanced.today.description'),
+                  defaultMessage: 'This will highlight today on calendar',
+                },
+              },
             ],
           },
+
           {
             name: 'private',
             type: 'checkbox',

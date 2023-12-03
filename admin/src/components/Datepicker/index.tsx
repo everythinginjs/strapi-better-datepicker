@@ -33,6 +33,7 @@ interface Props {
     options: {
       locale: 'english' | 'farsi' | 'arabic' | 'indian';
       type: 'gregorian' | 'persian' | 'arabic' | 'indian';
+      today: boolean;
     };
   };
   value: string;
@@ -78,7 +79,7 @@ export default function Datepicker(props: Props) {
   const {
     name,
     attribute: {
-      options: { type, locale },
+      options: { type, locale, today },
     },
     required,
     value,
@@ -99,10 +100,10 @@ export default function Datepicker(props: Props) {
   function handleAutocompleteDisable() {
     if (fieldRef.current) fieldRef.current.autocomplete = 'off';
   }
-
   return (
     <MultiDatePicker
       onOpen={handleAutocompleteDisable}
+      highlightToday={today}
       locale={LOCALES[type][locale]}
       calendar={CALENDARS[type]}
       format="YYYY-MM-DD"

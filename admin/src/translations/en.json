@@ -17,5 +17,7 @@
   "strapi-better-datepicker.advanced.locale.arabic": "Arabic",
   "strapi-better-datepicker.advanced.locale.indian": "Indian",
   "strapi-better-datepicker.advanced.locale.items": "Locale",
-  "strapi-better-datepicker.advanced.locale.items.placeholder": "Choose a locale for calendar"
+  "strapi-better-datepicker.advanced.locale.items.placeholder": "Choose a locale for calendar",
+  "strapi-better-datepicker.advanced.today": "Highlight today",
+  "strapi-better-datepicker.advanced.today.description": "This will highlight today on calendar"
 }
