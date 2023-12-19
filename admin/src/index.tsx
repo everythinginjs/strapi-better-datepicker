@@ -4,6 +4,7 @@ import pluginId from './pluginId';
 import Initializer from './components/Initializer';
 import getTrad from './utils/getTrad';
 import PluginIcon from './components/PluginIcon';
+import options from './utils/customFieldAttributeOptions';
 
 const name = pluginPkg.strapi.name;
 
@@ -33,59 +34,7 @@ export default {
               id: getTrad('base.section.title.type'),
               defaultMessage: 'Type',
             },
-            items: [
-              {
-                type: 'select',
-                defaultValue: 'gregorian',
-                name: 'options.type',
-                intlLabel: {
-                  id: getTrad('base.type.items'),
-                  defaultMessage: 'Calendar Type',
-                },
-                options: [
-                  {
-                    key: 'gregorian',
-                    value: 'gregorian',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('base.type.items.gregorian'),
-                        defaultMessage: 'Gregorian',
-                      },
-                    },
-                  },
-                  {
-                    key: 'persian',
-                    value: 'persian',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('base.type.items.persian'),
-                        defaultMessage: 'Persian (Solar Hijri/Jalaali)',
-                      },
-                    },
-                  },
-                  {
-                    key: 'arabic',
-                    value: 'arabic',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('base.type.items.arabic'),
-                        defaultMessage: 'Arabic (Lunar Hijri)',
-                      },
-                    },
-                  },
-                  {
-                    key: 'indian',
-                    value: 'indian',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('base.type.items.indian'),
-                        defaultMessage: 'Indian',
-                      },
-                    },
-                  },
-                ],
-              },
-            ],
+            items: [options.calendar],
           },
         ],
         advanced: [
@@ -94,97 +43,7 @@ export default {
               id: getTrad('advanced.section.title.settings'),
               defaultMessage: 'Settings',
             },
-            items: [
-              {
-                type: 'select',
-                defaultValue: 'english',
-                name: 'options.locale',
-                intlLabel: {
-                  id: getTrad('advanced.locale.items'),
-                  defaultMessage: 'Locale',
-                },
-                options: [
-                  {
-                    key: 'english',
-                    value: 'english',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('advanced.locale.english'),
-                        defaultMessage: 'English',
-                      },
-                    },
-                  },
-                  {
-                    key: 'farsi',
-                    value: 'farsi',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('advanced.locale.farsi'),
-                        defaultMessage: 'Farsi',
-                      },
-                    },
-                  },
-                  {
-                    key: 'arabic',
-                    value: 'arabic',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('advanced.locale.arabic'),
-                        defaultMessage: 'Arabic',
-                      },
-                    },
-                  },
-                  {
-                    key: 'indian',
-                    value: 'indian',
-                    metadatas: {
-                      intlLabel: {
-                        id: getTrad('advanced.locale.indian'),
-                        defaultMessage: 'Indian',
-                      },
-                    },
-                  },
-                ],
-              },
-              {
-                name: 'options.today',
-                type: 'checkbox',
-                defaultValue: 'true',
-                intlLabel: {
-                  id: getTrad('advanced.today'),
-                  defaultMessage: 'Highlight today',
-                },
-                description: {
-                  id: getTrad('advanced.today.description'),
-                  defaultMessage: 'This will highlight today on calendar',
-                },
-              },
-            ],
-          },
-
-          {
-            name: 'private',
-            type: 'checkbox',
-            intlLabel: {
-              id: getTrad('form.attribute.item.privateField'),
-              defaultMessage: 'Private field',
-            },
-            description: {
-              id: getTrad('form.attribute.item.privateField.description'),
-              defaultMessage: 'This field will not show up in the API response',
-            },
-          },
-          {
-            name: 'required',
-            type: 'checkbox',
-            intlLabel: {
-              id: getTrad('form.attribute.item.requiredField'),
-              defaultMessage: 'Required field',
-            },
-            description: {
-              id: getTrad('form.attribute.item.requiredField.description'),
-              defaultMessage: "You won't be able to create an entry if this field is empty",
-            },
+            items: [options.locale, options.today, options.private, options.required],
           },
         ],
       },

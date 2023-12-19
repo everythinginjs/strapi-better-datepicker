@@ -96,10 +96,12 @@ export default function Datepicker(props: Props) {
 
   const fieldRef = useRef<HTMLInputElement>(null);
 
-  /* FieldInput in Strapi does not support autocomplete as a prop so we use ref of that to turn it off */
   function handleAutocompleteDisable() {
-    if (fieldRef.current) fieldRef.current.autocomplete = 'off';
+    if (fieldRef.current) {
+      fieldRef.current.autocomplete = 'off';
+    }
   }
+
   return (
     <MultiDatePicker
       onOpen={handleAutocompleteDisable}
