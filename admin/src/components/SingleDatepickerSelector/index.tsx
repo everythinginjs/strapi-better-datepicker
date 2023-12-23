@@ -1,4 +1,4 @@
-import MultiDatePicker from 'react-multi-date-picker';
+import MultiDatePicker, { DateObject } from 'react-multi-date-picker';
 
 import persian from 'react-date-object/calendars/persian';
 import persian_ar from 'react-date-object/locales/persian_ar';
@@ -75,7 +75,13 @@ const LOCALES = {
   },
 };
 
-export default function Datepicker(props: Props) {
+const ISO = new Intl.DateTimeFormat('fr-CA', {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}).format();
+console.log(ISO);
+export default function SingleDatepickerSelector(props: Props) {
   const {
     name,
     attribute: {
@@ -85,21 +91,18 @@ export default function Datepicker(props: Props) {
     value,
     onChange,
   } = props;
-
-  const [selectedDate, setSelectedDate] = useState(() => {
-    try {
-      return JSON.parse(value).calendarDate;
-    } catch (error) {
-      return value;
-    }
-  });
+  // we get ISO date comming from db, if it does not exist we set to today onChange
+  const [selectedDate, setSelectedDate] = useState(
+    new DateObject(value || ISO)
+      .convert(CALENDARS[type], LOCALES[type][locale])
+      .format('YYYY-MM-DD')
+  );
 
   const fieldRef = useRef<HTMLInputElement>(null);
 
+  /* FieldInput in Strapi does not support autocomplete as a prop so we use ref of that to turn it off */
   function handleAutocompleteDisable() {
-    if (fieldRef.current) {
-      fieldRef.current.autocomplete = 'off';
-    }
+    if (fieldRef.current) fieldRef.current.autocomplete = 'off';
   }
 
   return (
@@ -111,25 +114,19 @@ export default function Datepicker(props: Props) {
       format="YYYY-MM-DD"
       value={selectedDate}
       onChange={(date) => {
-        if (!Array.isArray(date)) {
-          const ISO = new Intl.DateTimeFormat('fr-CA', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit',
-          }).format(date?.toDate());
+        setSelectedDate(date.format());
+        const ISO = new Intl.DateTimeFormat('fr-CA', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+        }).format(date?.toDate());
 
-          setSelectedDate(date?.toString());
-
-          onChange({
-            target: {
-              value: JSON.stringify({
-                calendarDate: date?.toString(),
-                ISODate: ISO,
-              }),
-              name,
-            },
-          });
-        }
+        onChange({
+          target: {
+            value: ISO,
+            name,
+          },
+        });
       }}
       render={
         <Field name="sda" hint="Normally your name seperated by a dot.">
