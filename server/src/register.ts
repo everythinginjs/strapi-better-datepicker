@@ -4,14 +4,14 @@ import pluginId from '../../admin/src/pluginId';
 export default ({ strapi }: { strapi: Strapi }) => {
   strapi.customFields.register([
     {
-      name: 'better-datepicker',
+      name: 'single-date-picker',
       plugin: pluginId,
       type: 'date',
     },
     {
-      name: 'multi-better-datepicker',
+      name: 'single-datetime-picker',
       plugin: pluginId,
-      type: 'json',
+      type: 'datetime',
     },
   ]);
 };
